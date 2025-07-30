@@ -83,49 +83,6 @@ Ensure your tests have good coverage.
 4. Run tests: `go test`
 5. Run tests with coverage: `go test -cover`
 
-## Example structure for student/main.go:
-```go
-package main
-
-import "fmt"
-
-// Task 1: Add function
-func Add(a, b int) int {
-    // TODO: Implement this function
-}
-
-// Task 2: Divide function
-func Divide(a, b int) (float64, error) {
-    // TODO: Implement this function
-}
-
-// Task 3: String functions
-func Reverse(s string) string {
-    // TODO: Implement this function
-}
-
-func CountVowels(s string) int {
-    // TODO: Implement this function
-}
-
-// Task 4: Boolean functions
-func IsPalindrome(s string) bool {
-    // TODO: Implement this function
-}
-
-func IsPrime(n int) bool {
-    // TODO: Implement this function
-}
-
-// Task 5: Slice functions
-func SumSlice(numbers []int) int {
-    // TODO: Implement this function
-}
-
-func FindMax(numbers []int) (int, error) {
-    // TODO: Implement this function
-}
-```
 
 ## Example structure for student/main_test.go:
 ```go

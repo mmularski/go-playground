@@ -52,41 +52,7 @@ Create a simple program of your choice that demonstrates what you've learned.
 3. Implement all tasks in the `main()` function
 4. Test your code by running: `go run main.go`
 
-## Example structure for student/main.go:
-```go
-package main
 
-import "fmt"
-
-func main() {
-    // Task 1: Basic Hello World
-    fmt.Println("Hello, World!")
-
-    // Task 2: Personalized Greeting
-    greet("Alice")
-    greet("Bob")
-
-    // Task 3: Multiple Greetings
-    fmt.Print("Hello ")
-    fmt.Print("from ")
-    fmt.Println("Go!")
-
-    fmt.Printf("Welcome to %s!\n", "Go Programming")
-
-    // Task 4: Formatted Output
-    age := 25
-    name := "John"
-    height := 1.75
-    fmt.Printf("Name: %s, Age: %d, Height: %.2fm\n", name, age, height)
-
-    // Task 5: Your own program
-    // ... your creative code here
-}
-
-func greet(name string) {
-    fmt.Printf("Hello, %s!\n", name)
-}
-```
 
 ## Testing Your Code
 

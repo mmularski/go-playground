@@ -68,63 +68,7 @@ Create and work with nested loop structures.
 2. Create your code in `main.go`
 3. Run your code: `go run main.go`
 
-## Example structure for student/main.go:
-```go
-package main
 
-import "fmt"
-
-func main() {
-    // Task 1: If Statements
-    age := 25
-    if age >= 18 {
-        fmt.Println("You are an adult")
-    } else {
-        fmt.Println("You are a minor")
-    }
-
-    // Task 2: Switch Statements
-    day := "Monday"
-    switch day {
-    case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
-        fmt.Println("It's a weekday")
-    case "Saturday", "Sunday":
-        fmt.Println("It's a weekend")
-    default:
-        fmt.Println("Invalid day")
-    }
-
-    // Task 3: For Loops
-    for i := 1; i <= 5; i++ {
-        fmt.Printf("Count: %d\n", i)
-    }
-
-    // Task 4: Range Loops
-    fruits := []string{"apple", "banana", "orange"}
-    for index, fruit := range fruits {
-        fmt.Printf("Index %d: %s\n", index, fruit)
-    }
-
-    // Task 5: Break and Continue
-    for i := 1; i <= 10; i++ {
-        if i == 5 {
-            continue // Skip 5
-        }
-        if i == 8 {
-            break // Stop at 8
-        }
-        fmt.Printf("Number: %d\n", i)
-    }
-
-    // Task 6: Nested Loops
-    for i := 1; i <= 3; i++ {
-        for j := 1; j <= 3; j++ {
-            fmt.Printf("(%d,%d) ", i, j)
-        }
-        fmt.Println()
-    }
-}
-```
 
 ## Testing Your Code
 

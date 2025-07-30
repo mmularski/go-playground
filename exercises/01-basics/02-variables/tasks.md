@@ -64,33 +64,7 @@ Create a simple calculator that uses different variable types.
 3. Implement each task in separate functions
 4. Test your code by running: `go run main.go`
 
-## Example structure for student/main.go:
-```go
-package main
 
-import "fmt"
-
-func main() {
-    task1()
-    task2()
-    task3()
-    task4()
-    task5()
-    task6()
-}
-
-func task1() {
-    fmt.Println("=== Task 1: Variable Declaration ===")
-    // Your code here
-}
-
-func task2() {
-    fmt.Println("\n=== Task 2: Different Data Types ===")
-    // Your code here
-}
-
-// ... continue with other tasks
-```
 
 ## Testing Your Code
 
