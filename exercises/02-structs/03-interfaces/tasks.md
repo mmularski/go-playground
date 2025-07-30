@@ -1,0 +1,215 @@
+# Interfaces - Tasks
+
+## Task 1: Basic Interfaces
+Create and implement basic interfaces.
+
+**Requirements:**
+- Create an interface `Shape` with `Area() float64` method
+- Create structs `Circle` and `Rectangle` that implement Shape
+- Create a function that works with any Shape
+- Demonstrate polymorphism
+
+## Task 2: Interface Composition
+Create interfaces that compose other interfaces.
+
+**Requirements:**
+- Create interface `Readable` with `Read() string` method
+- Create interface `Writable` with `Write(string)` method
+- Create interface `ReadWritable` that embeds both
+- Implement these interfaces with concrete types
+
+## Task 3: Empty Interface
+Work with the empty interface `interface{}`.
+
+**Requirements:**
+- Create a function that accepts `interface{}`
+- Use type assertions to work with different types
+- Use type switches to handle different types
+- Demonstrate when to use empty interface
+
+## Task 4: Interface Implementation
+Create types that implement multiple interfaces.
+
+**Requirements:**
+- Create interface `Stringer` with `String() string` method
+- Create interface `Comparable` with `Compare(other T) int` method
+- Create a type that implements both interfaces
+- Use the type in different contexts
+
+## Task 5: Interface Best Practices
+Follow Go interface design principles.
+
+**Requirements:**
+- Keep interfaces small (1-3 methods)
+- Define interfaces where they are used
+- Use interfaces for behavior, not data
+- Create interfaces that are easy to implement
+
+## Task 6: Practical Application
+Create a simple drawing system using interfaces.
+
+**Requirements:**
+- Create interface `Drawable` with `Draw()` method
+- Create different shapes that implement Drawable
+- Create a canvas that can draw any Drawable
+- Demonstrate the power of interfaces
+
+---
+
+## How to complete these tasks:
+
+1. Navigate to the `student/` directory
+2. Create your code in `main.go`
+3. Run your code: `go run main.go`
+
+## Example structure for student/main.go:
+```go
+package main
+
+import "fmt"
+
+// Task 1: Basic interfaces
+type Shape interface {
+    Area() float64
+}
+
+type Circle struct {
+    Radius float64
+}
+
+func (c Circle) Area() float64 {
+    return 3.14159 * c.Radius * c.Radius
+}
+
+type Rectangle struct {
+    Width, Height float64
+}
+
+func (r Rectangle) Area() float64 {
+    return r.Width * r.Height
+}
+
+func PrintArea(s Shape) {
+    fmt.Printf("Area: %.2f\n", s.Area())
+}
+
+// Task 2: Interface composition
+type Readable interface {
+    Read() string
+}
+
+type Writable interface {
+    Write(string)
+}
+
+type ReadWritable interface {
+    Readable
+    Writable
+}
+
+type File struct {
+    content string
+}
+
+func (f *File) Read() string {
+    return f.content
+}
+
+func (f *File) Write(data string) {
+    f.content = data
+}
+
+// Task 3: Empty interface
+func PrintAnything(v interface{}) {
+    switch val := v.(type) {
+    case string:
+        fmt.Printf("String: %s\n", val)
+    case int:
+        fmt.Printf("Integer: %d\n", val)
+    case bool:
+        fmt.Printf("Boolean: %t\n", val)
+    default:
+        fmt.Printf("Unknown type: %T\n", val)
+    }
+}
+
+// Task 4: Multiple interfaces
+type Stringer interface {
+    String() string
+}
+
+type Comparable interface {
+    Compare(other Comparable) int
+}
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+func (p Person) String() string {
+    return fmt.Sprintf("%s (%d)", p.Name, p.Age)
+}
+
+func (p Person) Compare(other Comparable) int {
+    if otherPerson, ok := other.(Person); ok {
+        if p.Age < otherPerson.Age {
+            return -1
+        } else if p.Age > otherPerson.Age {
+            return 1
+        }
+        return 0
+    }
+    return 0
+}
+
+// Task 5: Interface best practices
+type Logger interface {
+    Log(message string)
+}
+
+type ConsoleLogger struct{}
+
+func (cl ConsoleLogger) Log(message string) {
+    fmt.Println("LOG:", message)
+}
+
+// Task 6: Practical application
+type Drawable interface {
+    Draw()
+}
+
+type Canvas struct {
+    shapes []Drawable
+}
+
+func (c *Canvas) AddShape(shape Drawable) {
+    c.shapes = append(c.shapes, shape)
+}
+
+func (c Canvas) DrawAll() {
+    for _, shape := range c.shapes {
+        shape.Draw()
+    }
+}
+
+type Square struct{}
+
+func (s Square) Draw() {
+    fmt.Println("Drawing a square")
+}
+
+func main() {
+    // Demonstrate your interfaces here
+}
+```
+
+## Testing Your Code
+
+Run your program:
+```bash
+cd student/
+go run main.go
+```
+
+You should see output demonstrating all interface concepts.
